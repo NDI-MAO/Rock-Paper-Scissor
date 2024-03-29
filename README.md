@@ -1,2 +1,5 @@
 # Rock-Paper-Scissor
-Making a R-P-S Game by adding Js to CSS and HTML
+First Javascript codes,
+making a rock-paper-scissor game
+by adding Js to an interactive HTML & CSS landing page
+

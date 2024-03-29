@@ -1,0 +1,73 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+}
+
+
+.heropage {
+    padding: 20px;
+    background-color: #04aee2;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.gameview {
+    display: flex;
+    gap: 20px;
+    padding: 100px;
+    background-color: #ffffff;
+    justify-content: center;
+
+}
+
+.userchoice {
+    padding: 20px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #03a0bf;
+    border-width: 3px;
+}
+
+.computing {
+    padding: 20px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #03a0bf;
+    border-width: 3px;
+    width: 500px;
+}
+
+#color {
+    text-align: center;
+    padding-bottom: 15px;
+    border-radius: 5px;
+}
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bolder;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #b3ebf6;
+    color: white;
+    transition: padding .4s, background 1s;
+}
+
+button:hover {
+    background-color: #04aee2;
+    padding-top: 30px;
+}
