@@ -67,6 +67,7 @@ button:hover {
     border-bottom-width: 10px;
     border-bottom-color: #2b305d;
     padding-bottom: 30px;
+    text-align: center;
 }
 .hero-right {
     background-color:#6c58a7;
@@ -88,8 +89,4 @@ button:hover {
     border-radius: 5px;
     background-color: #2b305d;
     color: #ffffff;
-    transition: transform 0.1s;
-}
-.box:hover {
-    transform: rotate(5deg);
 }
