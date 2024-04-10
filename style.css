@@ -1,13 +1,17 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #362da9;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;
+    background-color: #cccccc;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0%;
 }
-
 
 .heropage {
     padding: 20px;
-    background-color: #362da9;
-    color: #ffffff;
+    color:#ffffff;
     font-weight: bolder;
     font-size: 20px;
     text-align: center;
@@ -17,7 +21,6 @@ body {
 .gameview {
     display: flex;
     gap: 20px;
-    padding: 100px;
     justify-content: center;
 
 }
@@ -25,36 +28,34 @@ body {
 .userchoice {
     padding: 20px;
     border-radius: 5px;
-    background-color: #dfcec7;
+    background-color: #9aa7db;
+    color: #ffffff;
 }
-.container {
-
+.buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
-button {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
+.size {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bolder;
     padding: 20px;
     border-radius: 5px;
-    background-color: #6c58a7;
+    background-color:#6964a6;
     color: white;
     transition: padding .4s, background .1s;
 
 }
 
-button:hover {
-    background-color: #2b305d;
-    padding-top: 30px;
+.size:hover {
+    background-color:#b700ff;
+    padding: 21px;
 }
 
 .computing {
-    padding: 20px;
     border-radius: 5px;
-    background-color:#ffffff;
+    background-color:#9aa7db;
     width: 700px;
     display: flex;
     flex-direction: column;
@@ -62,31 +63,121 @@ button:hover {
 }
 .computing-hero {
     display: flex;
-    justify-content: end;
-    gap: 30px;
-    border-bottom-width: 10px;
-    border-bottom-color: #2b305d;
-    padding-bottom: 30px;
-    text-align: center;
-}
-.hero-right {
-    background-color:#6c58a7;
+    justify-content:space-between;
+    padding-left:20px;
+    padding-right:20px;
+    align-items: center;
+    font-size: medium;
+    font-weight: 600;
+    background-color:#6964a6;
     color: #ffffff;
-    width: 120px;
-    padding: 8px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.results{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.scoreholder {
+    background-color:#ffffff;
+    color:#6964a6;
+    width: 40px;
+    height: 30px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .game-dev{
-    padding-top: 30px;
+    padding: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
-    transition: transform 0.4s;
+    align-items: center;
+    height: 100%;
+
 }
-.box{
+#resultsboard{
+   
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:500px;
+    font-size: large;
+    color: #ffffff;
+
+}
+.computerBox, 
+.playerBox{
     width: 150px;
     height: 150px;
     border-radius: 5px;
-    background-color: #2b305d;
+    background-color:#6964a6;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+.textSize{
+    font-size:x-large;
+    font-weight: bold;
+}
+.textSize2{
+    font-size:40px;
+    font-weight: bold;
+    width:600px;
+    color: #ffffff;
+
+}
+.holdcontainer{
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+
+    background-color: #b8b6d3;
+    padding: 10px;
+    border-radius: 10px;
+    width: 902px;
+    display: flex;
+}
+#playerEmoji,
+#computerEmoji{
+font-size:70px;
+}
+#playerHolder,
+#computerHolder{
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 15px;
+    padding:5px;
+    color: #6964a6;
+    text-align: center;
+    justify-content: center;
+}
+.footer{
+    background-color: #6964a6;
+    color: #ffffff;
+    height: 40px;
+    display: flex;
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+}
+#reset{
+    font-size: small;
+    border-radius: 5px;
+    background-color:#6964a6;
+    color: white;
+    border-color: #cccccc;
+    margin-top: 15px;
+    padding:5px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

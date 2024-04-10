@@ -6,45 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✊🏾 🤚🏾 ✌🏾</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
-
+    
 </head>
 
 <body>
 
-<div class="heropage">Rock- Paper- Scissor</div>
-    <div class="gameview">
-        <div class="userchoice">
-            <div style="padding-bottom: 15px; text-align: center">Choose here!</div>
-            <div class="container">
-                <button class="size">✊🏾 Rock</button>
-                <button class="size">🤚🏾 Paper</button>
-                <button class="size">✌🏾Scissor</button>
+    <div class="heropage">ROCK - PAPER - SCISSOR</div>
+    <div class="holdcontainer">
+        <div class="container">
+        <div class="gameview">
+            <div class="userchoice">
+                <div style="padding-bottom: 15px; text-align: center">CHOOSE YOUR WEAPON!</div>
+                <div class="buttons">
+                    <button class="size" id="rock">✊🏾 ROCK</button>
+                    <button class="size" id="paper">🤚🏾 PAPER</button>
+                    <button class="size" id="scissor">✌🏾 SCISSOR</button>
+                </div>
+
+            </div>
+            <div class="computing">
+                <div class="computing-hero">
+                    <div>SCOREBOARD</div>
+                    <div class="results">
+                        <div class="hero-right">PLAYER</div>
+                        <div class="scoreholder" id="playerScore"></div>
+                        <p>:</p>
+                        <div class="scoreholder" id="computerScore"></div>
+                        <div class="hero-right">COMPUTER</div>
+                    </div>
+                    
+                </div>
+                <div class="game-dev">
+                    <div class="playerBox"> 
+                        <div>PLAYER CHOICE</div>
+                        <div id="playerEmoji"></div>
+                        <div id="playerHolder"></div>
+                    </div>
+                    <div id="resultsboard"></div>
+                    <div class="computerBox">
+                        <div>COMPUTER CHOICE</div>
+                        <div id="computerEmoji"></div>
+                        <div id="computerHolder"></div>
+
+                    </div>
+
+                </div>
+            
+
             </div>
 
         </div>
-        <div class="computing">
-            <div class="computing-hero">
-                <div style="font-weight: bolder;font-size:x-large;">SCOREBOARD</div>
-                <div class="hero-right">Player</div>
-                <div class="hero-right">Computer</div>
-            </div>
-            <div class="game-dev">
-                <div class="box"> Player</div>
-                <div></div>
-                <div class="box">Computer</div>
-
-            </div>
-          
 
         </div>
+        <div></div>
+        <div></div>
+        <script src="./script.js"></script>
+        </div>
+    </div>
+    <div class="footer">NDI-MAO</div>
+    <div>
+        
 
     </div>
-
-    </div>
-    <div></div>
-    <div></div>
-
 </body>
 
 </html>

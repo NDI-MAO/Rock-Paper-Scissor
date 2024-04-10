@@ -1,72 +1,136 @@
-function playGame() {
-  let computerWins = 0;
-  let playerWins = 0;
-  const winningScore= 5;
+// Initialize variables
+let computerWins = 0, playerWins = 0, winningScore = 5;
 
-  while (computerWins < winningScore && playerWins < winningScore) {
-      let playerSelection = getPlayerChoice();
-      let computerSelection = getComputerChoice();
-      const playRound = computerWins + playerWins + 1;
-      console.log(`Round ${playRound}`);
+const playerScoreDisplay = document.getElementById("playerScore");
+const computerScoreDisplay = document.getElementById("computerScore");
+const resultsBoard = document.getElementById("resultsboard");
+const playerEmoji = document.getElementById("playerEmoji");
+const computerEmoji = document.getElementById("computerEmoji");
+const playerHolder = document.getElementById("playerHolder");
+const computerHolder = document.getElementById("computerHolder");
+const reset = document.getElementById("reset");
 
-      const result = gameResult(playerSelection, computerSelection);
-      console.log(result);
 
-      if (result.includes("win")) {
-          playerWins++;
-      } else if (result.includes("lose")) {
-          computerWins++;
-      }
-  }
-
-  if (playerWins === winningScore) {
-      console.log("Congratulations! You win the game! 🔥🔥🔥");
-  } else {
-      console.log("Computer wins the game!☹️");
-  }
-}
+updateScores();
 
 function getComputerChoice() {
-  const randomNumber = Math.floor(Math.random() * 3);
-  if (randomNumber === 0) {
-      return "ROCK";
-  } else if (randomNumber === 1) {
-      return "PAPER";
-  } else {
-      return "SCISSOR";
-  }
+    const choices = ["ROCK", "PAPER", "SCISSOR"];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
-function getPlayerChoice() {
-  let playerSelection = prompt("Choose either ROCK, PAPER, or SCISSOR").toUpperCase();
-  while (!["ROCK", "PAPER", "SCISSOR"].includes(playerSelection)) {
-      alert("Invalid choice. Please choose ROCK, PAPER, or SCISSOR.");
-      playerSelection = prompt("Choose either ROCK, PAPER, or SCISSOR").toUpperCase();
-  }
-  return playerSelection;
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return `<span class="textSize">It's a tie 😶</span><br>Please try again`;
+    } else if (
+        (playerSelection === "ROCK" && computerSelection === "SCISSOR") ||
+        (playerSelection === "SCISSOR" && computerSelection === "PAPER") ||
+        (playerSelection === "PAPER" && computerSelection === "ROCK")
+    ) {
+        return `<span class="textSize">You win🔥</span><br>${playerSelection} beats ${computerSelection}`;
+
+    } else {
+        return `<span class="textSize">You lose🙁 </span><br>${computerSelection} beats ${playerSelection}`;
+    }
+}
+function updateScores() {
+    playerScoreDisplay.textContent = playerWins;
+    computerScoreDisplay.textContent = computerWins;
 }
 
-function gameResult(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-      return `Player selection: ${playerSelection}
-Computer selection: ${computerSelection}
-
-It's a tie!!`;
-  } else if (
-      (playerSelection === "ROCK" && computerSelection === "SCISSOR") ||
-      (playerSelection === "SCISSOR" && computerSelection === "PAPER") ||
-      (playerSelection === "PAPER" && computerSelection === "ROCK")
-  ) {
-      return `Player selection: ${playerSelection}
-Computer selection: ${computerSelection}
-
-You win! ${playerSelection} beats ${computerSelection}`;
-  } else {
-      return `Player selection: ${playerSelection}
-Computer selection: ${computerSelection}
-
-You lose! ${computerSelection} beats ${playerSelection}`;
-  }
+function hideShow() {
+    const playerBox = document.querySelector(".playerBox");
+    const computerBox = document.querySelector(".computerBox");
+    playerBox.style.display = playerBox.style.display === 'none' ? 'block' : 'none';
+    computerBox.style.display = computerBox.style.display === 'none' ? 'block' : 'none';
 }
 
-playGame();
+
+function playGame(playerChoice) {
+    const computerChoice = getComputerChoice();
+    const result = playRound(playerChoice, computerChoice);
+
+    resultsBoard.innerHTML = result;
+
+    if (result.includes("win")) {
+        playerWins++;
+    } else if (result.includes("lose")) {
+        computerWins++;
+    }
+
+    updateScores();
+    if (playerWins === winningScore || computerWins === winningScore) {
+      const message = playerWins === winningScore ?
+      "Congratulations🥳💃🕺<br>You won the game!" :
+      "Oops🧐<br>Computer wins the game!";
+  resultsBoard.innerHTML = `<span class="textSize2">${message}</span><br>
+  <span><button id="reset">Play again</button></span>`;
+  playerWins = computerWins = 0;
+  hideShow();
+  document.getElementById("reset").addEventListener('click', restartGame);
+  document.querySelectorAll('.size').forEach(button => {
+    button.addEventListener('click', restartGame);
+    });
+  return;
+    }
+    displayPlayerChoice(playerChoice);
+    displayComputerChoice(computerChoice);
+}
+
+function displayComputerChoice(computerSelection) {
+    let emoji;
+    switch (computerSelection) {
+        case "ROCK":
+            emoji = "✊🏾";
+            break;
+        case "PAPER":
+            emoji = "🤚🏾";
+            break;
+        case "SCISSOR":
+            emoji = "✌🏾";
+            break;
+        default:
+            emoji = "";
+            break;
+    }
+    computerEmoji.textContent = emoji;
+    computerHolder.textContent = computerSelection;
+}
+
+function displayPlayerChoice(playerSelection) {
+    let emoji;
+    switch (playerSelection) {
+        case "ROCK":
+            emoji = "✊🏾";
+            break;
+        case "PAPER":
+            emoji = "🤚🏾";
+            break;
+        case "SCISSOR":
+            emoji = "✌🏾";
+            break;
+        default:
+            emoji = "";
+            break;
+    }
+    playerEmoji.textContent = emoji;
+    playerHolder.textContent = playerSelection;
+}
+
+document.querySelectorAll('.size').forEach(button => {
+    button.addEventListener("click", () => {
+        playGame(button.id.toUpperCase());
+    });
+});
+
+
+// Your restartGame function
+function restartGame() {
+    playerWins = 0;
+    computerWins = 0;
+    location.reload();
+    updateScores();
+    resultsBoard.innerHTML = "";
+    hideShow();
+    
+}
